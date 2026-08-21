@@ -1,1 +1,41 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Air canvas</title>
+    <style> 
+    body{
+      margin:0;
+      background: black;
+      overflow : hidden;
+    }
+      video{
+        width:100vw;
+        height:100vh;
+        object-fit: cover;
+        transform: scale(-1);
+      }
+      buttom{
+        position: fixed;
+        top:20px;
+        left: 20px;
+        z-size:10;
+        padding:12px 20px;
+        font-size: 180px;
+      }
+      </style>
+  </head>
+  <body> 
+  <button onclick="startcamera()"> Start Camera</button>
+  <video id="camera" autoplay playsinline></video>
+  <script>
+    async function starcamera(){
+      const stream=
+        await
+        navigator.mediaDevices.getUserMedia({
+          video: true
+        });
+      document.getElementById("camera").srcObject=
+        stream;
+    }
+  </script></body>
+</html>
